@@ -2,10 +2,13 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Social } from "../typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
     <header
       className={
@@ -20,18 +23,15 @@ function Header({}: Props) {
         }}
         className={"flex flex-row items-center"}
       >
-        <SocialIcon
-          url={"https://instagram.com/saifmohamedsv"}
-          fgColor={"gray"}
-          bgColor={"transparent"}
-          target={"_blank"}
-        />
-        <SocialIcon
-          url={"https://linkedin.com/in/saifmohamedsv"}
-          fgColor={"gray"}
-          bgColor={"transparent"}
-          target={"_blank"}
-        />
+        {socials?.map((social, idx) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor={"gray"}
+            bgColor={"transparent"}
+            target={"_blank"}
+          />
+        ))}
       </motion.div>
 
       <Link href={"#contact"}>

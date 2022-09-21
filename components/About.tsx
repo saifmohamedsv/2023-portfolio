@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,9 +35,7 @@ function About({}: Props) {
         className={
           "-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
         }
-        src={
-          "https://cdn.sanity.io/images/w8smplyk/production/7c0908a2f0e9281d32f5f25bbc5c023887505a7a-1920x1080.jpg"
-        }
+        src={urlFor(pageInfo?.profilePic).url()}
       />
 
       <div className={"space-y-10 px-0 md:px-10"}>
@@ -42,13 +44,7 @@ function About({}: Props) {
           <span className={"underline decoration-[#02a9f7]"}>little </span>{" "}
           background
         </h4>
-        <p className={"text-sm"}>
-          I'm Saif. ⚡️ I'm a 20y old Software Engineer. I've been coding for 4
-          years now. As a Front-end Engineer I worked with startups and
-          mid-scale corporations to help buld & scale their companies. Along the
-          journey I realised my passion existed in being a great software
-          engineer and help others pursue their dreams being developers. ⭐️{" "}
-        </p>
+        <p className={"text-sm"}>{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );
