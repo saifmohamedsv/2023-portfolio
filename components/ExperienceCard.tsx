@@ -9,7 +9,7 @@ type Props = {
 
 function ExperienceCard({ experience }: Props) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-200">
+    <article className="flex flex-col rounded-lg items-center space-y-7 mt-24 md:mt-0 flex-shrink-0 w-screen md:w-[600px] xl:w-[900px] snap-start bg-[#292929] p-10 opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-200">
       <motion.img
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,6 +25,7 @@ function ExperienceCard({ experience }: Props) {
         <div className="flex space-x-2 my-2">
           {experience?.technologies?.map((technology, idx) => (
             <img
+              key={technology?._id}
               alt="technology"
               className="h-10 w-10 rounded-full"
               src={urlFor(technology.image).url()}
@@ -32,11 +33,14 @@ function ExperienceCard({ experience }: Props) {
           ))}
         </div>
         <p className="uppercase py-5 text-gray-300 ">
-          Started Work {experience?.dateStarted} - Ended {experience?.dateEnded}
+          {new Date(experience?.dateStarted).toDateString()} -{" "}
+          {experience.isCurrentlyWorkingHere
+            ? "present"
+            : new Date(experience?.dateEnded).toDateString()}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-lg">
           {experience?.points?.map((point, idx) => (
-            <li>{point}</li>
+            <li key={point}>{point}</li>
           ))}
         </ul>
       </div>

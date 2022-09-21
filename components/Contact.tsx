@@ -34,10 +34,10 @@ function Contact({}: Props) {
 
       <div className={"flex flex-col space-y-10"}>
         <h4 className={"text-4xl font-semibold text-center"}>
-          I've got just what you need.
+          I&apos;ve got just what you need.
           <span className={"underline decoration-[#02a9f7]/50"}>
-            Let's Talk
-          </span>{" "}
+            Let&apos;s Talk
+          </span>
         </h4>
         <div className={"space-y-10"}>
           <div className={"flex items-center space-x-5 justify-center"}>
@@ -50,7 +50,7 @@ function Contact({}: Props) {
           </div>
           <div className={"flex items-center space-x-5 justify-center"}>
             <MapPinIcon className={"text-[#02a9f7] h-7 w-7 animate-pulse"} />
-            <p>17x st. </p>
+            <p>17x st.</p>
           </div>
         </div>
 
