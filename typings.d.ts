@@ -49,7 +49,7 @@ export interface Project extends SanityBody {
 }
 
 export interface Experience extends SanityBody {
-  _type: "project";
+  _type: "experience";
   company: string;
   companyImage: Image;
   dateStarted: date;
