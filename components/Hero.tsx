@@ -23,20 +23,20 @@ function Hero({ pageInfo }: Props) {
     >
       <BackgroundCircles />
       <img
-        className={
-          "relative rounded-full h-24 w-24 md:h-32 md:w-32 mx-auto object-cover "
-        }
+        className={"relative rounded-full h-32 w-32 mx-auto object-cover "}
         src={urlFor(pageInfo?.heroImage).url()}
         alt={"profile picture"}
       />
       <div className={"z-20"}>
-        <h2
-          className={"text-sm uppercase text-gray-500 pb-2 tracking-[15px] lin"}
-        >
+        <h2 className={"text-sm uppercase text-gray-500 pb-2 tracking-[10px]"}>
           {pageInfo?.role}
         </h2>
-        <h1 className={"text-4xl md:text-6xl font-semibold px-2 md:px-10"}>
-          <span className={"mr-3"}>{text}</span>
+        <h1
+          className={
+            "text-3xl tracking-widest md:text-6xl font-semibold px-2 md:px-10"
+          }
+        >
+          <span className={""}>{text}</span>
           <Cursor cursorColor={"#F7AB0A"} />
         </h1>
         <div className={"pt-5 space-x-4 space-y-4"}>

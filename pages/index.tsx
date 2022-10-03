@@ -14,6 +14,7 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
+import { urlFor } from "../sanity";
 
 type Props = {
   pageInfo: PageInfo;
@@ -65,21 +66,21 @@ const Home = ({ skills, experiences, socials, pageInfo, projects }: Props) => {
         <Contact />
       </section>
 
-      <Link href={"#hero"}>
-        <footer className={"sticky bottom-5 right-5 w-full cursor-pointer"}>
-          <div className={"flex items-center justify-center"}>
+      <footer
+        className={"sticky bottom-16 md:bottom-5 right-5 w-full cursor-pointer"}
+      >
+        <div className={"flex items-center justify-center"}>
+          <Link href={"#hero"}>
             <img
               className={
                 "h-10 w-10 object-cover rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
               }
-              src={
-                "https://cdn.sanity.io/images/w8smplyk/production/7c0908a2f0e9281d32f5f25bbc5c023887505a7a-1920x1080.jpg"
-              }
+              src={urlFor(pageInfo?.profilePic).url()}
               alt={"Footer Logo"}
             />
-          </div>
-        </footer>
-      </Link>
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 };

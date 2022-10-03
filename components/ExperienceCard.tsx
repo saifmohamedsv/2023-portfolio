@@ -9,7 +9,7 @@ type Props = {
 
 function ExperienceCard({ experience }: Props) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 mt-24 md:mt-0 flex-shrink-0 w-screen md:w-[600px] xl:w-[900px] snap-start bg-[#292929] p-10 opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-200">
+    <article className="flex flex-col rounded-lg items-center space-y-7 mt-2 md:mt-0 flex-shrink-0 w-[350px] md:w-[600px] xl:w-[900px] snap-start bg-[#292929] p-10 opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-200">
       <motion.img
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,14 +20,18 @@ function ExperienceCard({ experience }: Props) {
         alt="profile image cool guy tiktok"
       />
       <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
-        <p className="font-bold text-2xl mt-1">{experience?.company}</p>
-        <div className="flex space-x-2 my-2">
+        <h4 className="text-3xl md:text-4xl font-light">
+          {experience?.jobTitle}
+        </h4>
+        <p className="font-bold text-2xl mt-1 text-[#02a9f7]">
+          @ {experience?.company}
+        </p>
+        <div className="grid grid-cols-4 my-2">
           {experience?.technologies?.map((technology, idx) => (
             <img
               key={technology?._id}
               alt="technology"
-              className="h-10 w-10 rounded-full"
+              className="h-10 w-10 rounded-full mt-2"
               src={urlFor(technology.image).url()}
             />
           ))}
